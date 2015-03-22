@@ -11,6 +11,8 @@
 		6AE79EB31ABF1DE200DBE530 /* hashtable_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hashtable_main.cpp; sourceTree = "<group>"; };
 		6AE79EB41ABF1DE200DBE530 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; usesTabs = 1; };
 		6AE79EB51ABF222A00DBE530 /* test_input */ = {isa = PBXFileReference; lastKnownFileType = text; path = test_input; sourceTree = "<group>"; };
+		6AE79EB61ABF2BBE00DBE530 /* hashtable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hashtable.cpp; sourceTree = "<group>"; };
+		6AE79EB71ABF2BBE00DBE530 /* hashtable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hashtable.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -19,6 +21,8 @@
 			children = (
 				6AE79EB21ABF1DE200DBE530 /* Hashtable.pdf */,
 				6AE79EB31ABF1DE200DBE530 /* hashtable_main.cpp */,
+				6AE79EB61ABF2BBE00DBE530 /* hashtable.cpp */,
+				6AE79EB71ABF2BBE00DBE530 /* hashtable.h */,
 				6AE79EB51ABF222A00DBE530 /* test_input */,
 				6AE79EB41ABF1DE200DBE530 /* makefile */,
 			);
