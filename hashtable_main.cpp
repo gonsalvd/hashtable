@@ -12,14 +12,9 @@
 #include <cstdlib>
 #include <iostream>
 #include <algorithm>
-#include "binary.cpp"
-#include "linear.cpp"
 #include <ctime>
 #include <vector>
 using namespace std;
-
-int global_binary=0;
-vector<int> all_vector;
 
 int main(int argc, char **argv)
 {

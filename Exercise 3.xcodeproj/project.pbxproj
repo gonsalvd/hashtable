@@ -9,7 +9,7 @@
 /* Begin PBXFileReference section */
 		6AE79EB21ABF1DE200DBE530 /* Hashtable.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Hashtable.pdf; sourceTree = "<group>"; };
 		6AE79EB31ABF1DE200DBE530 /* hashtable_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hashtable_main.cpp; sourceTree = "<group>"; };
-		6AE79EB41ABF1DE200DBE530 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		6AE79EB41ABF1DE200DBE530 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; usesTabs = 1; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */

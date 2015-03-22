@@ -1,20 +1,20 @@
-all: search
+all: hash-table
 
-search: linear.o binary.o sb_main_final.o
-	g++ -std=c++0x -o search linear.o sb_main_final.o binary.o
+hash-table: hashtable_main.o
+	g++ -std=c++0x -o hash-table hashtable_main.o
 
-linear.o: linear.cpp linear.h
-	g++ -c linear.cpp
-
-sb_main_final.o: sb_main_final.cpp linear.h binary.h
+hash-table.o: hashtable_main.cpp
 	g++ -c sb_main_final.cpp
 
-binary.o: binary.cpp binary.h
-	g++ -c binary.cpp
+#linear.o: linear.cpp linear.h
+#	g++ -c linear.cpp
+
+#binary.o: binary.cpp binary.h
+#	g++ -c binary.cpp
 
 clean:
 	rm -rf *.o
-	rm -rf search
+	rm -rf hash-table
 
     
     
