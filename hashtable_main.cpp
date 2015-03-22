@@ -42,22 +42,9 @@ int main(int argc, char **argv)
 ////        exe_type = atoi(argv[3]);
 //        
 //    }
-//    char test[256];
-//    string teststring;
+
     int number;
     string name;
-//
-//    cin.getline(test, 256);
-//    cout<<test<<endl;
-//    cin.getline(test, 256);
-//    cout<<test<<endl;
-//    getline(cin, teststring);
-//    cout<<teststring<<endl;
-//    stringstream ss(teststring);
-//    ss>>number;
-//    ss>>name;
-//    cout<<number<<endl;
-//    cout<<name<<endl;
     
     string input;
     
@@ -65,7 +52,14 @@ int main(int argc, char **argv)
     {
         stringstream ss(input);
         ss>>number;
-        ss>>name;
+        if (number == 0)
+        {
+            break;
+        }
+        if (number == 1 || number == 2)
+        {
+            ss>>name;
+        }
         cout<<number<<endl;
         cout<<name<<endl;
     }
