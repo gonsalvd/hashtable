@@ -8,7 +8,7 @@
 
 /* Begin PBXFileReference section */
 		6AE79EB21ABF1DE200DBE530 /* Hashtable.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Hashtable.pdf; sourceTree = "<group>"; };
-		6AE79EB31ABF1DE200DBE530 /* sb_main_final.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sb_main_final.cpp; sourceTree = "<group>"; };
+		6AE79EB31ABF1DE200DBE530 /* hashtable_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hashtable_main.cpp; sourceTree = "<group>"; };
 		6AE79EB41ABF1DE200DBE530 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -17,7 +17,7 @@
 			isa = PBXGroup;
 			children = (
 				6AE79EB21ABF1DE200DBE530 /* Hashtable.pdf */,
-				6AE79EB31ABF1DE200DBE530 /* sb_main_final.cpp */,
+				6AE79EB31ABF1DE200DBE530 /* hashtable_main.cpp */,
 				6AE79EB41ABF1DE200DBE530 /* makefile */,
 			);
 			sourceTree = "<group>";
