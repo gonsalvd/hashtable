@@ -31,6 +31,7 @@ int main(int argc, char **argv)
     
     while (getline(cin, input))
     {
+
         stringstream ss(input);
         ss>>number;
         if (number == 0)
@@ -39,6 +40,12 @@ int main(int argc, char **argv)
         }
         else if (number == 1)
         {
+            //Error handling for size
+            if (manager.isFull())
+            {
+                cerr<<"Hash Table Size Reached."<<endl;
+                break;
+            }
             ss>>name;
             manager.insert(name);
         }

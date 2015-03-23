@@ -28,10 +28,18 @@ public:
     //Searches for an existing string in the hash table
     string search(string input);
     
+    //Checks full
+    bool isFull();
+    
+    //Returns number of elements in table
+    int getNumElements();
+    
 private:
     
     //Size of the hash table
     int M;
+    //Number of elements
+    int num_elements;
     //Array storing the string values
     string *array;
     
@@ -40,5 +48,7 @@ private:
     
     //Returns the size of the hash table
     int getSize();
+    
+    
 
 };

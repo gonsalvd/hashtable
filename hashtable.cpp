@@ -27,6 +27,8 @@ void Hash::insert(string input)
 
     //Put in the string input at index location h
     array[original_hash_value]=input;
+    //Update number of elements
+    ++num_elements;
 
 }
 
@@ -55,6 +57,16 @@ string Hash::search(string input)
     return sreturn;
 }
 
+bool Hash::isFull()
+{
+    bool rbool = false;
+    if (getNumElements() == getSize())
+    {
+        rbool = true;
+    }
+    return rbool;
+}
+
 //'global' hash function that encodes the hash value for insert and finds the hash value for decoding for search
 int Hash::hash(string input)
 {
@@ -71,4 +83,9 @@ int Hash::hash(string input)
 int Hash::getSize()
 {
     return M;
+}
+
+int Hash::getNumElements()
+{
+    return num_elements;
 }
