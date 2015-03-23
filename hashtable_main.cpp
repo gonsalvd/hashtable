@@ -16,14 +16,21 @@
 #include <vector>
 #include <string>
 #include <sstream>
+
+#include "hashtable.h"
 using namespace std;
 
 int main(int argc, char **argv)
 {
-    
+    //Created random table size for testing per page 496
+    int table_size = 1021;
+    Hash manager(table_size);
+    int return2;
+    string testinput = "drew";
+    return2 = manager.hashU(&testinput[0],manager.getSize());
+    cout<<return2<<endl;
     int number;
     string name;
-    
     string input;
     
     while (getline(cin, input))
