@@ -22,13 +22,9 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-    //Created random table size for testing per page 496
+    //Created random table size of prime number 1021 for testing per page 496
     int table_size = 1021;
     Hash manager(table_size);
-//    int return2;
-//    string testinput = "drew";
-//    return2 = manager.hashU(&testinput[0],manager.getSize());
-//    cout<<return2<<endl;
     int number;
     string name;
     string input;
@@ -44,19 +40,17 @@ int main(int argc, char **argv)
         else if (number == 1)
         {
             ss>>name;
-            //cout<<"here"<<endl;
             manager.insert(name);
         }
         else if (number == 2)
         {
             ss>>name;
             cout<<manager.search(name)<<endl;
-
         }
-        cout<<number<<endl;
-        cout<<name<<endl;
+//        cout<<number<<endl;
+//        cout<<name<<endl;
     }
-    
+    return 0;
     
 }
 

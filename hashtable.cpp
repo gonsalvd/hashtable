@@ -24,23 +24,10 @@ void Hash::insert(string input)
     {
         ++original_hash_value;
     }
-    //cout<<"Value of h: "<<h<<endl;
-    //cout<<"input: "<<input<<endl;
+
     //Put in the string input at index location h
     array[original_hash_value]=input;
-    //cout<<"Array [h]: "<<array[h]<<endl;
-}
 
-//'global' hash function that encodes the hash value for insert and finds the hash value for decoding for search
-int Hash::hash(string input)
-{
-    const char* v = 0;
-    v = input.c_str();
-    int h, a = 31415, b = 27183;
-    for (h = 0; *v != 0; v++, a = a*b % (M-1))
-        h = (a*h + *v) % M;
-    h = (h < 0) ? (h + M) : h;
-    return h;
 }
 
 string Hash::search(string input)
@@ -66,6 +53,18 @@ string Hash::search(string input)
         sreturn = "Yes";
     }
     return sreturn;
+}
+
+//'global' hash function that encodes the hash value for insert and finds the hash value for decoding for search
+int Hash::hash(string input)
+{
+    const char* v = 0;
+    v = input.c_str();
+    int h, a = 31415, b = 27183;
+    for (h = 0; *v != 0; v++, a = a*b % (M-1))
+        h = (a*h + *v) % M;
+    h = (h < 0) ? (h + M) : h;
+    return h;
 }
 
 //returns the size of the hashtable

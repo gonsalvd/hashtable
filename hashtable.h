@@ -17,15 +17,28 @@ using namespace std;
 
 class Hash
 {
+    
 public:
+    //Constructor for creating hash table
     Hash(int table_size);
-    //Universal has function implemention p498
+    
+    //Inserts a string into the hash table
     void insert(string input);
+    
+    //Searches for an existing string in the hash table
     string search(string input);
-    int getSize();
+    
 private:
+    
+    //Size of the hash table
     int M;
+    //Array storing the string values
     string *array;
+    
+    //Universal has function implemention p498
     int hash(string input);
+    
+    //Returns the size of the hash table
+    int getSize();
 
 };
