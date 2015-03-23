@@ -44,12 +44,13 @@ int main(int argc, char **argv)
         else if (number == 1)
         {
             ss>>name;
-            cout<<"here"<<endl;
+            //cout<<"here"<<endl;
             manager.insert(name);
         }
         else if (number == 2)
         {
             ss>>name;
+            cout<<manager.search(name)<<endl;
 
         }
         cout<<number<<endl;

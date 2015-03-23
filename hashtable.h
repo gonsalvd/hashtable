@@ -21,10 +21,11 @@ public:
     Hash(int table_size);
     //Universal has function implemention p498
     void insert(string input);
-    string search();
+    string search(string input);
     int getSize();
 private:
     int M;
     string *array;
+    int hash(string input);
 
 };
