@@ -25,6 +25,6 @@ public:
     int getSize();
 private:
     int M;
-    string *array[];
+    string *array;
 
 };

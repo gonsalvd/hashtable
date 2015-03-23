@@ -1,7 +1,7 @@
 all: hash-table
 
 hash-table: hashtable_main.o hashtable.o
-	g++ -std=c++0x -g -o hash-table hashtable_main.o hashtable.o
+	g++ -g -std=c++0x -o hash-table hashtable_main.o hashtable.o
 
 hash-table.o: hashtable_main.cpp
 	g++ -c sb_main_final.cpp
