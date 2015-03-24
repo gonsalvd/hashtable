@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 {
     //Created random table size of prime number 1021 for testing per page 496
     int table_size = 1021;
-    Hash manager(table_size);
+    Hash manager = Hash(table_size);
     int number;
     string name;
     string input;

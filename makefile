@@ -1,16 +1,13 @@
 all: hash-table
 
-hash-table: hashtable_main.o hashtable.o
-	g++ -g -std=c++0x -o hash-table hashtable_main.o hashtable.o
-
-hash-table.o: hashtable_main.cpp
-	g++ -c sb_main_final.cpp
+hash-table: hashtable.o hashtable_main.o
+	g++ -g -std=c++0x -o hash-table hashtable.o hashtable_main.o
 
 hashtable.o: hashtable.cpp hashtable.h
 	g++ -c hashtable.cpp
 
-#binary.o: binary.cpp binary.h
-#	g++ -c binary.cpp
+hashtable_main.o: hashtable_main.cpp hashtable.h
+	g++ -c hashtable_main.cpp
 
 clean:
 	rm -rf *.o
