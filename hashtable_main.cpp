@@ -57,6 +57,7 @@ int main(int argc, char **argv)
 //        cout<<number<<endl;
 //        cout<<name<<endl;
     }
+    cout<<manager.getNumElements()<<endl;
     return 0;
     
 }

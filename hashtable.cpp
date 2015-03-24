@@ -20,13 +20,22 @@ void Hash::insert(string input)
 {
     int original_hash_value = hash(input);
     //Cherk for collisions
-    while (array[original_hash_value] != "")
+    //Duplicates checking first
+    if (array[original_hash_value] == input)
+    {
+        //cerr<<"Duplicate found and not inserted"<<endl;
+        return;
+    }
+    //Keep looking until the next available
+    //TO SOLVE FOR WRAP AROUND, ADD INTO MODULE SIZE or else we get SEG FAULT!
+    while (array[original_hash_value % getSize()] != "")
     {
         ++original_hash_value;
     }
 
     //Put in the string input at index location h
-    array[original_hash_value]=input;
+    //SMUST HAVE THE % SIZE when we add back in
+    array[original_hash_value % getSize()]=input;
     //Update number of elements
     ++num_elements;
 
