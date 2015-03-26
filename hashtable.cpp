@@ -41,17 +41,19 @@ void Hash::grow()
     //Have to only loop through the old_table_size
     for (int a = 0; a != old_table_size; ++a)
     {
+        //Search through the old array for anything that has a hit
         if (array[a] != "")
         {
-            //This is the original-hash-value for the new M
+            //Rehash the old string with the M changed above
             int original_hash_value = hash(array[a]);
-            //Cherk for collisions
-            //Duplicates checking first
-            if (temp[original_hash_value] == array[a])
-            {
-                //cerr<<"Duplicate found and not inserted"<<endl;
-                return;
-            }
+            
+//            //Cherk for collisions
+//            //Duplicates checking first
+//            if (temp[original_hash_value] == array[a])
+//            {
+//                cerr<<"grow Duplicate found and not inserted"<<array[a]<<endl;
+//                return;
+//            }
             //Keep looking until the next available
             //TO SOLVE FOR WRAP AROUND, ADD INTO MODULE SIZE or else we get SEG FAULT!
             while (temp[original_hash_value % getSize()] != "")
@@ -62,9 +64,6 @@ void Hash::grow()
             //Put in the string input at index location h
             //SMUST HAVE THE % SIZE when we add back in
             temp[original_hash_value % getSize()]=array[a];
-            
-            //Right now we should be hashing based on the NEW table size
-            //temp[hash(array[a])] = array[a];
         }
     }
     delete[] array;
@@ -86,13 +85,19 @@ void Hash::insert(string input)
     //Duplicates checking first
     if (array[original_hash_value] == input)
     {
-        //cerr<<"Duplicate found and not inserted"<<endl;
+        cerr<<"insert Duplicate found and not inserted"<< input<<endl;
         return;
     }
     //Keep looking until the next available
     //TO SOLVE FOR WRAP AROUND, ADD INTO MODULE SIZE or else we get SEG FAULT!
     while (array[original_hash_value % getSize()] != "")
     {
+        //We have to check again. say the hash of joe is 2 and cathy is 2. in the first check above with == input we checked at 2 and no cathy != joe. cathy could have been put at 3 and the empty space is at 4. without this next IF check, then we would say 'yes, 3 is full but we wont check it and will just look for an empty space coming up'. this is a problem is SMALL arrays and not so much in large arrays with a small ratio of num of elements
+        if (array[original_hash_value] == input)
+        {
+            cerr<<"insert Duplicate found and not inserted"<< input<<endl;
+            return;
+        }
         ++original_hash_value;
     }
 

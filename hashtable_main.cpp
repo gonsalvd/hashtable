@@ -22,16 +22,13 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-    //Created random table size of prime number 1021 for testing per page 496
-    //int table_size = 1021;
-    //Hash manager = Hash(table_size);
     string input;
     int number;
     string name;
+    
     //Read in first line as the size of table
     std::getline(std::cin,input);
     int table_size = atoi(input.c_str());
-    //cout<<"table size: "<<table_size<<endl;
     Hash manager = Hash(table_size);
     
     
@@ -43,15 +40,9 @@ int main(int argc, char **argv)
         {
             break;
         }
-        //This commands adding
+        //This commands inserting
         else if (number == 1)
         {
-            //Error handling for size
-//            if (manager.isFull())
-//            {
-//                cerr<<"Hash Table Size Reached."<<endl;
-//                break;
-//            }
             ss>>name;
             manager.insert(name);
         }
