@@ -36,7 +36,7 @@ void Hash::grow()
         temp = new string[new_table_size];
         
     } catch (bad_alloc& ba) {
-        cerr << "bad_alloc caught: " << ba.what() << endl;
+        //cerr << "bad_alloc caught: " << ba.what() << endl;
     }
     //Have to only loop through the old_table_size
     for (int a = 0; a != old_table_size; ++a)
@@ -68,9 +68,9 @@ void Hash::grow()
     }
     delete[] array;
     array = temp;
-    cout<<"I grew"<<endl;
-    cout<<"New size is: "<< M<<endl;
-    cout<<"Number of elements: "<<num_elements<<endl;
+//    cout<<"I grew"<<endl;
+//    cout<<"New size is: "<< M<<endl;
+//    cout<<"Number of elements: "<<num_elements<<endl;
 }
 
 //Hash function is the Universal Hash Function from Sedgewick 1-4 on p  498
@@ -85,7 +85,7 @@ void Hash::insert(string input)
     //Duplicates checking first
     if (array[original_hash_value] == input)
     {
-        cerr<<"insert Duplicate found and not inserted"<< input<<endl;
+        //cerr<<"insert Duplicate found and not inserted"<< input<<endl;
         return;
     }
     //Keep looking until the next available
@@ -95,7 +95,7 @@ void Hash::insert(string input)
         //We have to check again. say the hash of joe is 2 and cathy is 2. in the first check above with == input we checked at 2 and no cathy != joe. cathy could have been put at 3 and the empty space is at 4. without this next IF check, then we would say 'yes, 3 is full but we wont check it and will just look for an empty space coming up'. this is a problem is SMALL arrays and not so much in large arrays with a small ratio of num of elements
         if (array[original_hash_value] == input)
         {
-            cerr<<"insert Duplicate found and not inserted"<< input<<endl;
+            //cerr<<"insert Duplicate found and not inserted"<< input<<endl;
             return;
         }
         ++original_hash_value;
@@ -106,8 +106,8 @@ void Hash::insert(string input)
     array[original_hash_value % getSize()]=input;
     //Update number of elements
     ++num_elements;
-    cout<<"Current size: "<<M<<endl;
-    cout<<"Number of elements: "<<num_elements<<endl;
+//    cout<<"Current size: "<<M<<endl;
+//    cout<<"Number of elements: "<<num_elements<<endl;
 
 }
 
@@ -149,14 +149,14 @@ bool Hash::isFull()
 //'global' hash function that encodes the hash value for insert and finds the hash value for decoding for search
 int Hash::hash(string input)
 {
-    cout<<"value of M: "<<M<<endl;
+    //cout<<"value of M: "<<M<<endl;
     const char* v = 0;
     v = input.c_str();
     int h, a = 31415, b = 27183;
     for (h = 0; *v != 0; v++, a = a*b % (M-1))
         h = (a*h + *v) % M;
     h = (h < 0) ? (h + M) : h;
-    cout<<"hash value: "<<h<<endl;
+    //cout<<"hash value: "<<h<<endl;
     return h;
 }
 
