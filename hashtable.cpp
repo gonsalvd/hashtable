@@ -9,15 +9,78 @@
 #include "hashtable.h"
 using namespace std;
 
-Hash::Hash (int table_size)
+Hash::Hash(int table_size)
 {
     array = new string[table_size];
     M = table_size;
 }
 
+Hash::Hash()
+{
+    //Arbitrarily large array to start out with
+    M=1021;
+    array = new string[M];
+}
+
+void Hash::grow()
+{
+    //the front stays the same
+    string *temp;
+    //crappy band aid for the 'for' loop below
+    int old_table_size = M;
+    int new_table_size = (getSize() * 2) + 1;
+    //Have to set M equal to the new_table_size because when we rehash in the for statement, hash relies on the value of M.
+    M = new_table_size;
+    try {
+        
+        temp = new string[new_table_size];
+        
+    } catch (bad_alloc& ba) {
+        cerr << "bad_alloc caught: " << ba.what() << endl;
+    }
+    //Have to only loop through the old_table_size
+    for (int a = 0; a != old_table_size; ++a)
+    {
+        if (array[a] != "")
+        {
+            //This is the original-hash-value for the new M
+            int original_hash_value = hash(array[a]);
+            //Cherk for collisions
+            //Duplicates checking first
+            if (temp[original_hash_value] == array[a])
+            {
+                //cerr<<"Duplicate found and not inserted"<<endl;
+                return;
+            }
+            //Keep looking until the next available
+            //TO SOLVE FOR WRAP AROUND, ADD INTO MODULE SIZE or else we get SEG FAULT!
+            while (temp[original_hash_value % getSize()] != "")
+            {
+                ++original_hash_value;
+            }
+            
+            //Put in the string input at index location h
+            //SMUST HAVE THE % SIZE when we add back in
+            temp[original_hash_value % getSize()]=array[a];
+            
+            //Right now we should be hashing based on the NEW table size
+            //temp[hash(array[a])] = array[a];
+        }
+    }
+    delete[] array;
+    array = temp;
+    cout<<"I grew"<<endl;
+    cout<<"New size is: "<< M<<endl;
+    cout<<"Number of elements: "<<num_elements<<endl;
+}
+
 //Hash function is the Universal Hash Function from Sedgewick 1-4 on p  498
 void Hash::insert(string input)
 {
+    if (isFull())
+    {
+        grow();
+    }
     int original_hash_value = hash(input);
     //Cherk for collisions
     //Duplicates checking first
@@ -38,6 +101,8 @@ void Hash::insert(string input)
     array[original_hash_value % getSize()]=input;
     //Update number of elements
     ++num_elements;
+    cout<<"Current size: "<<M<<endl;
+    cout<<"Number of elements: "<<num_elements<<endl;
 
 }
 
@@ -79,12 +144,14 @@ bool Hash::isFull()
 //'global' hash function that encodes the hash value for insert and finds the hash value for decoding for search
 int Hash::hash(string input)
 {
+    cout<<"value of M: "<<M<<endl;
     const char* v = 0;
     v = input.c_str();
     int h, a = 31415, b = 27183;
     for (h = 0; *v != 0; v++, a = a*b % (M-1))
         h = (a*h + *v) % M;
     h = (h < 0) ? (h + M) : h;
+    cout<<"hash value: "<<h<<endl;
     return h;
 }
 

@@ -22,6 +22,8 @@ public:
     //Constructor for creating hash table
     Hash(int table_size);
     
+    Hash();
+    
     //Inserts a string into the hash table
     void insert(string input);
     
@@ -33,6 +35,7 @@ public:
     
     //Returns number of elements in table
     int getNumElements();
+    
     
 private:
     
@@ -49,6 +52,7 @@ private:
     //Returns the size of the hash table
     int getSize();
     
-    
+    //Grows from original size of 11
+    void grow();
 
 };
